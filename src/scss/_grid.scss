@@ -1,0 +1,32 @@
+.main-grid {
+  width: 100%;
+  margin: 0 auto;
+
+  @include clear();
+
+  #left-col {
+    width: 30%;
+    float: left;
+    position: fixed;
+    background-color: white;
+
+    & > div.left-col--wrap {
+      padding-right: 30px;
+      padding-top: 30px;
+      padding-left: 30px;
+    }
+  }
+
+  #right-col {
+    width: 70%;
+    float: right;
+
+    & > div.right-col--wrap {
+      padding-left: 60px;
+      padding-right: 30px;
+      border-left: 1px solid #dadada;
+      max-width: 700px;
+      padding-bottom: 60px;
+    }
+  }
+}

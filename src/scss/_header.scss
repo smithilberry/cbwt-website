@@ -1,0 +1,84 @@
+header.main-nav {
+  #logo-container {
+    text-align: right;
+
+    img {
+      width: 100%;
+      max-width: 240px;
+    }
+
+    margin-bottom: 20px;
+  }
+
+  .mobile-nav-btn {
+    position: absolute;
+    right: 30px;
+    top: 60px;
+    cursor: pointer;
+
+    display: none;
+
+    img {
+      max-width: 44px;
+      height: auto;
+    }
+  }
+
+  nav {
+    .close {
+      display: none;
+    }
+
+    ul {
+      li {
+        text-align: right;
+        list-style: none;
+        font-family: $sans-serif;
+        text-transform: uppercase;
+        font-size: 20px;
+        padding: 5px 0;
+
+        &.disabled {
+          a {
+            color: #dadada;
+
+            &:hover {
+              color: #dadada;
+            }
+          }
+        }
+
+        &:last-of-type {
+          margin-bottom: 20px;
+        }
+
+        a {
+          color: gray;
+          text-decoration: none;
+          transition: color .5s;
+          -webkit-transition: color .5s;
+          cursor: pointer;
+
+          &:hover {
+            color: black;
+            transition: color .5s;
+            -webkit-transition: color .5s;
+          }
+        }
+      }
+    }
+  }
+
+  h5 {
+    text-align: right;
+    font-size: 16px !important;
+  }
+
+  .day-counter {
+    margin-bottom: 30px !important;
+  }
+
+  .trip-date {
+    color: black !important;
+  }
+}

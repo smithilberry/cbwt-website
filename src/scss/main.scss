@@ -1,0 +1,59 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:700);
+@import url(https://fonts.googleapis.com/css?family=Slabo+27px);
+
+// clear floats
+@mixin clear(){
+  &:before,
+  &:after {  
+    content: "";
+    display: table;
+    clear: both;
+  }
+};
+
+// 16x9 ratio
+@mixin video(){
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+
+  iframe, embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@mixin flickr(){
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+$headlineColor: #dd0e0e;
+$linkColor: #ff8d10;
+
+$sans-serif: "Montserrat", Helvetica, sans-serif;
+$serif: "Slabo 27px", Georgia, serif;
+
+@import "_reset.scss";
+@import "_general.scss";
+@import "_header.scss";
+@import "_grid.scss";
+@import "_popups.scss";
+@import "_forms.scss";
+@import "_admin.scss";
+@import "_media-queries.scss";
+@import "_typography.scss";
