@@ -11,7 +11,9 @@
     "purge": "rm -rf node_modules && yarn cache clean",
     "heroku-postbuild": "yarn build"
   },
-  "dependencies": {},
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  },
   "devDependencies": {
     "parcel-bundler": "^1.12.4",
     "sass": "^1.26.3"

@@ -25,7 +25,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../src/styles/main.scss" />
     <!-- JS -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="../src/main.js"></script>
   </head>
   <body>
@@ -286,22 +286,19 @@
           <div class="section-content">
             <h1 id="mailing-list">Join Our Mailing List</h1>
             <h5>Tell us about yourself</h5>
-            <form id="signup-form">
-              <label for="name" style="display:none">Enter your name</label>
-              <input id="name" name="name" type="text" placeholder="Your Name" required />
+            <form id="signup-form" method="post" action="">
+              <label for="name" style="display:none">Enter your full name</label>
+              <input id="signup-form--name" name="name" type="text" placeholder="Your Name" required />
 
               <label for="email" style="display:none">Enter your email</label>
-              <input id="email" name="email" type="email" placeholder="Your Email" required />
-
-              <label for="phone" style="display:none">Enter your phone number</label>
-              <input id="phone" name="phone" type="text" placeholder="Your Phone Number" required />
+              <input id="signup-form--email" name="email" type="email" placeholder="Your Email" required />
 
               <h5 class="recaptcha-title hidden">Verify you arent a robot, please.</h5>
-              <div
+              <!-- <div
                 class="g-recaptcha"
                 data-sitekey="6LdMKyIUAAAAAHjXREy8Ct_N2ZFk7q0Tb4RetYOh"
-              ></div>
-              <input id="formsubmit" type="submit" value="Send Notifications" />
+              ></div> -->
+              <input id="signup-form--submit" type="button" value="Get Updates" />
             </form>
           </div>
         </div>

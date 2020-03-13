@@ -8,6 +8,9 @@ void (() => {
   let $daysEl = undefined;
   let $dateEl = undefined;
   let $yearDate = undefined;
+  let $formName = undefined;
+  let $formEmail = undefined;
+  let $formSubmit = undefined;
 
   const _toggleMemoriumView = () => {
     $memoriumEl.classList.toggle("hidden");
@@ -18,10 +21,10 @@ void (() => {
   };
 
   const _setYearDate = () => {
-    $yearDate.forEach( $el => {
+    $yearDate.forEach($el => {
       $el.innerHTML = new Date().getFullYear();
-    })
-  }
+    });
+  };
 
   const _getFirstThursday = () => {
     const today = new Date();
@@ -40,7 +43,7 @@ void (() => {
       year = parseInt(prettyTodayYear);
     }
 
-    for(let day = 1; day < 7; day++){
+    for (let day = 1; day < 7; day++) {
       firstThursday = new Date(year, 7, day);
 
       if (firstThursday.getDay() === 4) {
@@ -48,7 +51,9 @@ void (() => {
       }
     }
 
-    const prettyFirstThursday = firstThursday.toLocaleString("en-US", { timeZone: "America/New_York" });
+    const prettyFirstThursday = firstThursday.toLocaleString("en-US", {
+      timeZone: "America/New_York"
+    });
     const prettyFirstThursdayMonth = prettyFirstThursday.split("/")[0];
     const prettyFirstThursdayDate = prettyFirstThursday.split("/")[1].split("/")[0];
     // var prettyFirstThursdayYear = prettyFirstThursday.split(",")[0].split("/")[2];
@@ -68,6 +73,38 @@ void (() => {
     $dateEl.innerHTML = `Aug ${prettyFirstThursdayDate} - ${parseInt(prettyFirstThursdayDate) + 4}`;
   };
 
+  const _sendEmail = () => {
+    const formName = $formName.value;
+    const formEmail = $formEmail.value;
+    const canSubmit = formName.length > 0 && formEmail.length > 0;
+    const emailMsg = {
+      Host: "smtp.gmail.com",
+      Username: process.env.EMAIL_ADDRESS,
+      Password: process.env.EMAIL_PASSWORD,
+      To: process.env.EMAIL_ADDRESS,
+      From: process.env.EMAIL_ADDRESS,
+      Subject: "A new sign-up from campbikewinetour.com!",
+      Body: `Someone has signed up to get notified about CBWT updates. Here is their info:
+
+      Name: ${formName}
+      Email: ${formEmail}`
+    };
+
+    console.log(process.env.EMAIL_ADDRESS);
+
+    if (canSubmit && window.Email) {
+      window.Email.send(emailMsg)
+        .then(msg => {
+          alert("success");
+        })
+        .catch(err => {
+          alert("faiure");
+        });
+    } else {
+      // alert("mail did not send");
+    }
+  };
+
   const _bind = () => {
     $memoriumLink = document.querySelector(".memorium-link");
     $memoriumCloseBtn = document.querySelector(".memorium-close-btn");
@@ -78,6 +115,9 @@ void (() => {
     $daysEl = document.querySelector(".day-counter .days");
     $dateEl = document.querySelector(".trip-date .date");
     $yearDate = Array.from(document.querySelectorAll(".year-date"));
+    $formName = document.querySelector("#signup-form--name");
+    $formEmail = document.querySelector("#signup-form--email");
+    $formSubmit = document.querySelector("#signup-form--submit");
   };
 
   const _listen = () => {
@@ -85,6 +125,7 @@ void (() => {
     $memoriumCloseBtn.addEventListener("click", _toggleMemoriumView);
     $mobileNavBtn.addEventListener("click", _toggleMobileNavView);
     $mobileNavCloseBtn.addEventListener("click", _toggleMobileNavView);
+    $formSubmit.addEventListener("click", _sendEmail);
   };
 
   const _init = () => {
@@ -97,7 +138,6 @@ void (() => {
 
   document.addEventListener("DOMContentLoaded", _init);
 })(document);
-
 
 // function bindFormHandler(){
 //   $( "#signup-form" ).submit( function( event ){

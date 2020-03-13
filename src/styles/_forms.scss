@@ -45,14 +45,14 @@
     }
   }
 
-  input[type="submit"] {
+  input[type="button"] {
     margin-bottom: 0;
     cursor: pointer;
     background: $headlineColor;
     border-color: #a91111;
     color: white;
     text-transform: uppercase;
-    
+
     &:disabled {
       background: gray;
       border-color: gray;
