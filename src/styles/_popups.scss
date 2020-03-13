@@ -13,7 +13,7 @@
   width: 100%;
   z-index: 9;
   transition: top 0.5s ease-out;
-  
+
   &.hidden {
     top: -200px;
     transition: top 0.5s ease-out;
@@ -35,7 +35,7 @@
   width: 100%;
   z-index: 9;
   transition: top 0.5s ease-out;
-  
+
   &.hidden {
     top: -200px;
     transition: top 0.5s ease-out;
@@ -123,7 +123,7 @@
     -webkit-transition: opacity .3s;
   }
 
-  .close {
+  .memorium-close-btn {
     display: block;
     position: absolute;
     right: 20px;
@@ -134,7 +134,7 @@
     img {
       max-width: 25px;
     }
-  }  
+  }
 
   .memoriam-grid {
     max-width: 800px;

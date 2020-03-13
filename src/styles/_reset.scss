@@ -11,6 +11,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 html {
+  scroll-behavior: smooth;
   overflow-y: scroll;
   /* Keeps page centered in all browsers regardless of content height */
   -webkit-text-size-adjust: 100%;

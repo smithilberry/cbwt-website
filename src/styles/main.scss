@@ -4,7 +4,7 @@
 // clear floats
 @mixin clear(){
   &:before,
-  &:after {  
+  &:after {
     content: "";
     display: table;
     clear: both;
@@ -54,6 +54,5 @@ $serif: "Slabo 27px", Georgia, serif;
 @import "_grid.scss";
 @import "_popups.scss";
 @import "_forms.scss";
-@import "_admin.scss";
 @import "_media-queries.scss";
 @import "_typography.scss";

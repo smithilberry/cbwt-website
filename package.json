@@ -1,15 +1,19 @@
 {
   "name": "cbwt-website",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Website for campbikewinetour.com",
   "author": "A Nomadic Collective Developers",
+  "license": "MIT",
+  "private": true,
   "scripts": {
+    "dev": "parcel html/*.html --no-cache --out-dir build/dev",
+    "build": "parcel build html/*.html --no-cache --out-dir build/dist",
+    "purge": "rm -rf node_modules && yarn cache clean",
+    "heroku-postbuild": "yarn build"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-clean-css": "^2.0.4",
-    "gulp-sass": "^2.2.0"
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.3"
   }
 }
