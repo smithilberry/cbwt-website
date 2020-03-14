@@ -2,7 +2,7 @@ const dotenv = require("dotenv").config();
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const redirectSSL = require('redirect-ssl');
+const redirectSSL = require("redirect-ssl");
 const nodeMailer = require("nodemailer");
 const Bundler = require("parcel-bundler");
 const Path = require("path");
@@ -30,6 +30,12 @@ const options = {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(redirectSSL);
+
+app.get("/api", function(req, res, next) {
+  res.send({
+    status: 200
+  });
+});
 
 app.post("/api/mailer", function(req, res, next) {
   let transporter = nodeMailer.createTransport({
@@ -72,8 +78,10 @@ const bundler = new Bundler(file, options);
 app.use(bundler.middleware());
 
 // Serve static files for heroku?
-app.use(express.static('./html'));
-app.use(express.static('./dist'));
+app.use(express.static("./html"));
+app.use(express.static("./dist"));
 
 // Export the server middleware
-app.listen(process.env.PORT, () => console.log(`Server is listening on port http://localhost:${process.env.PORT}`));
+app.listen(process.env.PORT, () =>
+  console.log(`Server is listening on port http://localhost:${process.env.PORT}`)
+);

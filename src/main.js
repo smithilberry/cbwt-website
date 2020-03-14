@@ -113,10 +113,9 @@ void (() => {
     if (!$formEl.checkValidity()) {
       //
     } else {
-      fetch("/api/mailer", {
+      fetch(`/api/mailer`, {
         method: "POST",
         mode: "cors",
-        credentials: "same-origin",
         headers: {
           "Content-Type": "application/json"
         },
@@ -125,7 +124,7 @@ void (() => {
           email: $formEmail.value
         })
       })
-        .then(res => res.json())
+        // .then(res => res.json())
         .then(res => {
           const { formDidFail } = res;
 

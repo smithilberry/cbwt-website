@@ -64,6 +64,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 30px;
     margin: 0 auto;
 
     &.hidden {
@@ -78,7 +79,6 @@
 
     .overlay-text {
       display: inline;
-
 
       &.error {
         color: $headlineColor;

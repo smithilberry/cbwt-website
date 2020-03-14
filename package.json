@@ -12,7 +12,7 @@
     "dev": "yarn destroy & parcel ./html/index.html --no-cache",
     "build": "yarn destroy & parcel build ./html/index.html --no-cache",
     "start": "yarn destroy & node server.js",
-    "heroku-postbuild": "yarn build",
+    "serve": "node server.js",
     "destroy": "rm -rf dist",
     "purge": "rm -rf node_modules && yarn cache clean"
   },
