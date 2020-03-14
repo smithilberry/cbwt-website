@@ -10,24 +10,23 @@
   },
   "scripts": {
     "dev": "yarn destroy & parcel ./html/index.html --no-cache",
-    "build": "yarn destroy & parcel build ./html/index.html --no-cache",
+    "compile": "yarn destroy & parcel build ./html/index.html --no-cache",
     "start": "yarn destroy & node server.js",
     "serve": "node server.js",
     "destroy": "rm -rf dist",
     "purge": "rm -rf node_modules && yarn cache clean"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "autoprefixer": "^9.7.4",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "nodemailer": "^6.4.5",
     "parcel-bundler": "^1.12.4",
-    "redirect-ssl": "^1.4.1"
+    "redirect-ssl": "^1.4.1",
+    "sass": "^1.26.3"
   },
   "devDependencies": {
-    "autoprefixer": "^9.7.4",
-    "sass": "^1.26.3"
   },
   "browserslist": "last 2 versions",
   "postcss": {
