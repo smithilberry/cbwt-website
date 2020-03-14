@@ -9,7 +9,7 @@
     "node": ">=10.16.0"
   },
   "scripts": {
-    "dev": "yarn destroy & parcel ./html/index.html --no-cache",
+    "dev": "yarn destroy & parcel ./html/index.html --no-cache --https",
     "compile": "yarn destroy & parcel build ./html/index.html --no-cache",
     "start": "yarn destroy & node server.js",
     "serve": "node server.js",
