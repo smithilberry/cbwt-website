@@ -10,8 +10,7 @@
   },
   "scripts": {
     "start": "rm -rf dist && node server.js",
-    "purge": "rm -rf node_modules && yarn cache clean",
-    "heroku-postbuild": "yarn start"
+    "purge": "rm -rf node_modules && yarn cache clean"
   },
   "dependencies": {
     "axios": "^0.19.2",
