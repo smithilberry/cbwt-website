@@ -68,12 +68,13 @@ app.post("/api/mailer", function(req, res, next) {
       if (error) {
         res.send({
           formDidFail: true,
-          email: process.env.EMAIL_ADDRESS // debugging
+          error,
+          info
         });
       } else {
         res.send({
           formDidFail: false,
-          email: process.env.EMAIL_ADDRESS // debugging
+          info
         });
       }
     });

@@ -128,7 +128,7 @@ void (() => {
         .then(res => {
           const { formDidFail } = res;
 
-          console.log( res ); // debug
+          console.debug( res ); // debug
 
           if( formDidFail ){
             $formOverlayElText.innerHTML = "Sorry, there was a problem. Please try again later."
