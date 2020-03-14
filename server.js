@@ -1,4 +1,6 @@
-const dotenv = require("dotenv").config();
+const dotenv = require("dotenv");
+dotenv.config();
+
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
@@ -7,7 +9,8 @@ const nodeMailer = require("nodemailer");
 const Bundler = require("parcel-bundler");
 const Path = require("path");
 
-const isDev = process.env.NODE_ENV !== 'production';
+const isDev = process.env.NODE_ENV === 'development';
+const isProd = process.env.NODE_ENV === 'production';
 
 const file = Path.join(__dirname, "./html/index.html"); // Pass an absolute path to the entrypoint here
 const options = {
@@ -19,13 +22,14 @@ const options = {
   minify: false, // Minify files, enabled if process.env.NODE_ENV === 'production'
   scopeHoist: false, // Turn on experimental scope hoisting/tree shaking flag, for smaller production bundles
   target: "browser", // Browser/node/electron, defaults to browser
-  bundleNodeModules: false, // By default, package.json dependencies are not included when using 'node' or 'electron' with 'target' option above. Set to true to adds them to the bundle, false by default
+  bundleNodeModules: true, // By default, package.json dependencies are not included when using 'node' or 'electron' with 'target' option above. Set to true to adds them to the bundle, false by default
   logLevel: 3, // 5 = save everything to a file, 4 = like 3, but with timestamps and additionally log http requests to dev server, 3 = log info, warnings & errors, 2 = log warnings & errors, 1 = log errors, 0 = log nothing
   hmr: isDev, // Enable or disable HMR while watching
   hmrPort: 0, // The port the HMR socket runs on, defaults to a random free port (0 in node.js resolves to a random free port)
   sourceMaps: false, // Enable or disable sourcemaps, defaults to enabled (minified builds currently always create sourcemaps)
   detailedReport: false, // Prints a detailed report of the bundles, assets, filesizes and times, defaults to false, reports are only printed if watch is disabled
-  autoInstall: true // Enable or disable auto install of missing dependencies found during bundling
+  autoInstall: true, // Enable or disable auto install of missing dependencies found during bundling
+  production: isProd
 };
 
 app.use(bodyParser.urlencoded({ extended: true }));
