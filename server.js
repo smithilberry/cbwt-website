@@ -27,7 +27,6 @@ const options = {
   autoInstall: true // Enable or disable auto install of missing dependencies found during bundling
 };
 
-// app.use(redirectSSL);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(redirectSSL);
@@ -72,5 +71,9 @@ const bundler = new Bundler(file, options);
 // Let express use the bundler middleware, this will let Parcel handle every request over your express server
 app.use(bundler.middleware());
 
+// Serve static files for heroku?
+app.use(express.static('./html'));
+app.use(express.static('./dist'));
+
 // Export the server middleware
-app.listen(process.env.PORT, () => console.log(`Server is listening on port ${process.env.PORT}`));
+app.listen(process.env.PORT, () => console.log(`Server is listening on port http://localhost:${process.env.PORT}`));
