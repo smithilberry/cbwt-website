@@ -5,17 +5,31 @@
   "author": "A Nomadic Collective Developers",
   "license": "MIT",
   "private": true,
+  "engines": {
+    "node": ">=10.16.0"
+  },
   "scripts": {
-    "dev": "parcel html/*.html --no-cache --out-dir build/dev",
-    "build": "parcel build html/*.html --no-cache --out-dir build/dist",
+    "start": "rm -rf dist && node server.js",
     "purge": "rm -rf node_modules && yarn cache clean",
-    "heroku-postbuild": "yarn build"
+    "heroku-postbuild": "yarn start"
   },
   "dependencies": {
-    "dotenv": "^8.2.0"
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nodemailer": "^6.4.5",
+    "redirect-ssl": "^1.4.1"
   },
   "devDependencies": {
+    "autoprefixer": "^9.7.4",
     "parcel-bundler": "^1.12.4",
     "sass": "^1.26.3"
+  },
+  "browserslist": "last 2 versions",
+  "postcss": {
+    "plugins": {
+      "autoprefixer": true
+    }
   }
 }

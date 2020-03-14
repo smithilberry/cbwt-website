@@ -18,11 +18,9 @@ yarn-error.log*
 # Node modules
 node_modules/
 
-# Token
+# Secrets
 .env
+ssl/
 
-# Code coverage
-__coverage__/
-
-# Dev Build
-build/
+# Builds
+dist/

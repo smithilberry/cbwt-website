@@ -125,7 +125,7 @@
           </div>
           <!-- ACTIVITIES -->
           <div class="section-content">
-            <h1 id="activities">Tour Activities</h1>
+            <h2 id="activities">Tour Activities</h2>
             <h5>The Camp Sites</h5>
             <p>
               We usually rent out a few sites depending on the amount of attendees, but each
@@ -172,7 +172,7 @@
           </div>
           <!-- SCHEDULE -->
           <div class="section-content">
-            <h1 id="schedule">Schedule</h1>
+            <h2 id="schedule">Schedule</h2>
             <h5>Thursday - Arrival</h5>
             <h5>Friday - Lake Activities</h5>
             <h5>Saturday - Biking / Tasting</h5>
@@ -181,7 +181,7 @@
           </div>
           <!-- PAST PHOTOS -->
           <div class="section-content">
-            <h1 id="photos">Past Photos</h1>
+            <h2 id="photos">Past Photos</h2>
             <div class="flickr-embed-gallery">
               <a
                 data-flickr-embed="true"
@@ -201,7 +201,7 @@
           </div>
           <!-- DISCLAIMER -->
           <div class="section-content">
-            <h1 id="disclaimer">Disclaimer / Warnings</h1>
+            <h2 id="disclaimer">Disclaimer / Warnings</h2>
             <h5>Physical Risks</h5>
             <p>
               The tour takes place at the start of the typically hottest month of the year, so
@@ -219,7 +219,7 @@
           </div>
           <!-- FAQ -->
           <div class="section-content">
-            <h1 id="faq">Frequently Asked Questions</h1>
+            <h2 id="faq">Frequently Asked Questions</h2>
             <h5>What are the camp sites like?</h5>
             <p class="has-sibling">
               You can find more information about the
@@ -284,20 +284,20 @@
           </div>
           <!-- Mailing List -->
           <div class="section-content">
-            <h1 id="mailing-list">Join Our Mailing List</h1>
-            <h5>Tell us about yourself</h5>
+            <h2 id="mailing-list">Join Our Mailing List</h2>
             <form id="signup-form" method="post" action="">
+              <div id="signup-form--overlay" class="hidden"><h6 class="overlay-text"></h6></div>
+
+              <h5>Tell us about yourself</h5>
+
               <label for="name" style="display:none">Enter your full name</label>
               <input id="signup-form--name" name="name" type="text" placeholder="Your Name" required />
 
               <label for="email" style="display:none">Enter your email</label>
               <input id="signup-form--email" name="email" type="email" placeholder="Your Email" required />
 
-              <h5 class="recaptcha-title hidden">Verify you arent a robot, please.</h5>
-              <!-- <div
-                class="g-recaptcha"
-                data-sitekey="6LdMKyIUAAAAAHjXREy8Ct_N2ZFk7q0Tb4RetYOh"
-              ></div> -->
+              <input id="signup-form--dummy" width="0" height="0" name="signup-form--dummy" style="display:none" />
+
               <input id="signup-form--submit" type="button" value="Get Updates" />
             </form>
           </div>
