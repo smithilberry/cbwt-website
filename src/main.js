@@ -124,9 +124,11 @@ void (() => {
           email: $formEmail.value
         })
       })
-        // .then(res => res.json())
+        .then(res => res.json())
         .then(res => {
           const { formDidFail } = res;
+
+          console.log( res ); // debug
 
           if( formDidFail ){
             $formOverlayElText.innerHTML = "Sorry, there was a problem. Please try again later."

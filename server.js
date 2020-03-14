@@ -67,11 +67,13 @@ app.post("/api/mailer", function(req, res, next) {
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         res.send({
-          formDidFail: true
+          formDidFail: true,
+          email: process.env.EMAIL_ADDRESS // debugging
         });
       } else {
         res.send({
-          formDidFail: false
+          formDidFail: false,
+          email: process.env.EMAIL_ADDRESS // debugging
         });
       }
     });
