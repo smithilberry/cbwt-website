@@ -52,56 +52,9 @@ void (() => {
   };
 
   const _setYearDate = () => {
-    $yearDate.forEach($el => {
+    $yearDate.forEach(($el) => {
       $el.innerHTML = new Date().getFullYear();
     });
-  };
-
-  const _getFirstThursday = () => {
-    const today = new Date();
-    const oneDay = 24 * 60 * 60 * 1000;
-    let day = 1;
-    let year = "";
-    let firstThursday = undefined;
-    let prettyToday = today.toLocaleString("en-US", { timeZone: "America/New_York" });
-    let prettyTodayMonth = prettyToday.split("/")[0];
-    let prettyTodayDate = prettyToday.split("/")[1].split("/")[0];
-    let prettyTodayYear = prettyToday.split(",")[0].split("/")[2];
-
-    if (prettyTodayMonth > 8) {
-      year = parseInt(prettyTodayYear) + 1;
-    } else {
-      year = parseInt(prettyTodayYear);
-    }
-
-    for (let day = 1; day < 7; day++) {
-      firstThursday = new Date(year, 7, day);
-
-      if (firstThursday.getDay() === 4) {
-        break;
-      }
-    }
-
-    const prettyFirstThursday = firstThursday.toLocaleString("en-US", {
-      timeZone: "America/New_York"
-    });
-    const prettyFirstThursdayMonth = prettyFirstThursday.split("/")[0];
-    const prettyFirstThursdayDate = prettyFirstThursday.split("/")[1].split("/")[0];
-    // var prettyFirstThursdayYear = prettyFirstThursday.split(",")[0].split("/")[2];
-
-    var daysLeft = Math.round(Math.abs((today.getTime() - firstThursday.getTime()) / oneDay));
-
-    if (
-      prettyTodayMonth == prettyFirstThursdayMonth &&
-      prettyTodayDate >= prettyFirstThursdayDate &&
-      prettyTodayDate <= parseInt(prettyFirstThursdayDate) + 4
-    ) {
-      $daysEl.innerHTML = "CBWT is happening now!";
-    } else {
-      $daysEl.innerHTML = `${daysLeft} days until CBWT!`;
-    }
-
-    $dateEl.innerHTML = `Aug ${prettyFirstThursdayDate} - ${parseInt(prettyFirstThursdayDate) + 4}`;
   };
 
   const _submitContactForm = () => {
@@ -117,38 +70,38 @@ void (() => {
         method: "POST",
         mode: "cors",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           name: $formName.value,
-          email: $formEmail.value
-        })
+          email: $formEmail.value,
+        }),
       })
-        .then(res => res.json())
-        .then(res => {
+        .then((res) => res.json())
+        .then((res) => {
           const { formDidFail } = res;
 
-          console.debug( res ); // debug
+          console.debug(res); // debug
 
-          if( formDidFail ){
-            $formOverlayElText.innerHTML = "Sorry, there was a problem. Please try again later."
-            $formOverlayElText.classList.remove('success');
-            $formOverlayElText.classList.add('error');
+          if (formDidFail) {
+            $formOverlayElText.innerHTML = "Sorry, there was a problem. Please try again later.";
+            $formOverlayElText.classList.remove("success");
+            $formOverlayElText.classList.add("error");
           } else {
-            $formOverlayElText.innerHTML = "Thanks for signing up!"
-            $formOverlayElText.classList.remove('error');
-            $formOverlayElText.classList.add('success');
+            $formOverlayElText.innerHTML = "Thanks for signing up!";
+            $formOverlayElText.classList.remove("error");
+            $formOverlayElText.classList.add("success");
             $formEl.reset();
           }
 
           $formOverlayEl.classList.remove("hidden");
-          $formOverlayEl.classList.add('fade');
+          $formOverlayEl.classList.add("fade");
 
-          window.setTimeout( () => {
+          window.setTimeout(() => {
             $formOverlayEl.classList.add("hidden");
           }, 5999);
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         });
     }
@@ -158,7 +111,6 @@ void (() => {
     _bind();
     _listen();
     _setYearDate();
-    _getFirstThursday();
   };
 
   document.addEventListener("DOMContentLoaded", _init);
