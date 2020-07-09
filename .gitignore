@@ -24,3 +24,5 @@ ssl/
 
 # Builds
 dist/
+
+.cache/

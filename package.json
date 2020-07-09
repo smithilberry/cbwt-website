@@ -11,7 +11,8 @@
   "scripts": {
     "dev": "parcel ./html/index.html --no-cache --https",
     "build": "parcel build ./html/index.html --no-cache",
-    "serve": "node server.js",
+    "serve": "parcel serve ./html/index.html",
+    "server": "node server.js",
     "purge": "rm -rf node_modules && yarn cache clean"
   },
   "dependencies": {
@@ -20,7 +21,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "nodemailer": "^6.4.10",
-    "parcel-bundler": "^1.12.4",
+    "parcel": "latest",
     "redirect-ssl": "^2.0.0",
     "sass": "^1.26.10"
   },
